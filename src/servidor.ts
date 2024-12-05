@@ -5,7 +5,7 @@ const PORT = 3000;
 
 const startServer = async () => {
     try {
-        await sequelize.sync();
+        await sequelize.sync(); // Sincroniza la base de datos
         console.log("Base de datos conectada");
         app.listen(PORT, () => console.log(`Servidor corriendo en http://localhost:${PORT}`));
     } catch (error) {
@@ -14,3 +14,4 @@ const startServer = async () => {
 };
 
 startServer();
+

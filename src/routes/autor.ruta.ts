@@ -1,12 +1,19 @@
-import { Router } from "express";
-import { registrarAutor, obtenerAutores } from "../controllers/autor.controlador";
+import express from "express";
+import {
+    crearAutor,
+    obtenerAutores,
+    eliminarAutor,
+} from "../services/autor.servicio";
 
-const router = Router();
+const router = express.Router();
 
-// Ruta para registrar un autor
-router.post("/autores", registrarAutor);
+// Crear un nuevo autor
+router.post("/", crearAutor);
 
-// Ruta para obtener todos los autores
-router.get("/autores", obtenerAutores);
+// Obtener todos los autores
+router.get("/", obtenerAutores);
+
+// Eliminar un autor por ID
+router.delete("/:id", eliminarAutor);
 
 export default router;

@@ -1,14 +1,19 @@
 import express from "express";
-import libroRoutes from "./routes/libro.ruta";
-import ventaRoutes from "./routes/venta.ruta";
+import bodyParser from "body-parser";
+import cors from "cors";
 import autorRoutes from "./routes/autor.ruta";
 import categoriaRoutes from "./routes/categoria.ruta";
+import libroRoutes from "./routes/libro.ruta";
+import ventaRoutes from "./routes/venta.ruta";
 
 const app = express();
-app.use("/api", autorRoutes);
-app.use("/api", categoriaRoutes);
-app.use(express.json());
-app.use("/api", ventaRoutes);
-app.use("/api", libroRoutes);
+
+app.use(cors());
+app.use(bodyParser.json());
+
+app.use("/autores", autorRoutes);
+app.use("/categorias", categoriaRoutes);
+app.use("/libros", libroRoutes);
+app.use("/ventas", ventaRoutes);
 
 export default app;

@@ -1,6 +1,5 @@
 import { DataTypes, Model } from "sequelize";
 import sequelize from "../config/db";
-import Libro from "./libro.modelo";
 
 class Autor extends Model {}
 
@@ -8,8 +7,8 @@ Autor.init(
     {
         id: {
             type: DataTypes.INTEGER,
-            primaryKey: true,
             autoIncrement: true,
+            primaryKey: true,
         },
         nombre: {
             type: DataTypes.STRING,
@@ -27,3 +26,6 @@ Autor.init(
 );
 
 export default Autor;
+
+
+

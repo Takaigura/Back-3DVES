@@ -1,9 +1,19 @@
-import { Router } from "express";
-import { registrarLibro, consultarLibros } from "../controllers/libro.controlador";
+import express from "express";
+import {
+    crearLibro,
+    obtenerLibros,
+    eliminarLibro,
+} from "../services/libro.servicio";
 
-const router = Router();
+const router = express.Router();
 
-router.post("/libros", registrarLibro);
-router.get("/libros", consultarLibros);
+// Crear un nuevo libro
+router.post("/", crearLibro);
+
+// Obtener todos los libros
+router.get("/", obtenerLibros);
+
+// Eliminar un libro por ID
+router.delete("/:id", eliminarLibro);
 
 export default router;

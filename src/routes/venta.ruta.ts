@@ -1,10 +1,24 @@
-import { Router } from "express";
-import { registrarVenta, consultarTotalPorMes } from "../controllers/venta.controlador";
+import express from "express";
+import {
+    registrarVenta,
+    obtenerVentas,
+    eliminarVenta,
+    totalVentasPorMes,
+} from "../services/venta.servicio";
 
-const router = Router();
+const router = express.Router();
 
-router.post("/ventas", registrarVenta);
-router.get("/ventas/total-por-mes", consultarTotalPorMes);
+// Registrar una nueva venta
+router.post("/", registrarVenta);
+
+// Obtener todas las ventas
+router.get("/", obtenerVentas);
+
+// Consultar total de ventas por mes
+router.get("/totales-mensuales", totalVentasPorMes);
+
+// Eliminar una venta por ID
+router.delete("/:id", eliminarVenta);
 
 export default router;
 

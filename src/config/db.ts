@@ -1,8 +1,8 @@
-import {Sequelize} from "sequelize";
+import { Sequelize } from "sequelize";
 
 const sequelize = new Sequelize({
-    dialect: "sqlite",
-    storage: "database.sqlite"
-})
+    dialect: "sqlite", // Tipo de base de datos
+    storage: "./database.sqlite", // Ruta del archivo SQLite
+});
 
 export default sequelize;
