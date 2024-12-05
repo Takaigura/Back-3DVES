@@ -4,12 +4,12 @@ import Libro from "../models/libro.modelo";
 // Crear un nuevo libro
 export const crearLibro = async (req: Request, res: Response) => {
     try {
-        const { titulo, autorId, categoriaId } = req.body;
+        const { titulo, id_autor, id_categoria } = req.body;
 
-        if (!titulo || !autorId || !categoriaId) {
+        if (!titulo || !id_autor || !id_categoria) {
             res.status(400).json({ error: "Título, autor y categoría son requeridos" });
         }else{
-            const libro = await Libro.create({ titulo, autorId, categoriaId });
+            const libro = await Libro.create({ titulo, id_autor, id_categoria });
             res.status(201).json(libro);
         }
     } catch (error) {
