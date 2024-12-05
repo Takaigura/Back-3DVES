@@ -5,12 +5,12 @@ import Venta from "../models/venta.modelo";
 // Registrar una nueva venta
 export const registrarVenta = async (req: Request, res: Response) => {
     try {
-        const { libroId, cantidad, total } = req.body;
+        const { id_libro, cantidad, total } = req.body;
 
-        if (!libroId || !cantidad || !total) {
+        if (!id_libro || !cantidad || !total) {
             res.status(400).json({ error: "Libro, cantidad y total son requeridos" });
         }else{
-            const venta = await Venta.create({ libroId, cantidad, total });
+            const venta = await Venta.create({ id_libro, cantidad, total });
             res.status(201).json(venta);
         }
     } catch (error) {
