@@ -1,8 +1,14 @@
 import { DataTypes, Model } from "sequelize";
 import sequelize from "../config/db";
 
+/**
+ * Modelo para representar a un autor de libros.
+ */
 class Autor extends Model {}
 
+/**
+ * Definición del modelo Autor con sus atributos.
+ */
 Autor.init(
     {
         id: {

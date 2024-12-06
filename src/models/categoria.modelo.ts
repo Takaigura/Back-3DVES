@@ -1,9 +1,14 @@
 import { DataTypes, Model } from "sequelize";
 import sequelize from "../config/db";
 
-
+/**
+ * Modelo para representar una categoría de libros.
+ */
 class Categoria extends Model {}
 
+/**
+ * Definición del modelo Categoria con sus atributos.
+ */
 Categoria.init(
     {
         id: {

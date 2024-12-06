@@ -7,6 +7,10 @@ import {
 
 const router = express.Router();
 
+/**
+ * Define las rutas relacionadas con los libros.
+ */
+
 // Crear un nuevo libro
 router.post("/", crearLibro);
 

@@ -7,6 +7,10 @@ import {
 
 const router = express.Router();
 
+/**
+ * Rutas relacionadas con la gestión de autores.
+ */
+
 // Crear un nuevo autor
 router.post("/", crearAutor);
 
@@ -17,3 +21,4 @@ router.get("/", obtenerAutores);
 router.delete("/:id", eliminarAutor);
 
 export default router;
+

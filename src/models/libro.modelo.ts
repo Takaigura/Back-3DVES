@@ -2,10 +2,15 @@ import { DataTypes, Model } from "sequelize";
 import sequelize from "../config/db";
 import Autor from "./autor.modelo";
 import Categoria from "./categoria.modelo";
-import Venta from "./venta.modelo";
 
+/**
+ * Modelo para representar un libro.
+ */
 class Libro extends Model {}
 
+/**
+ * Definición del modelo Libro con sus atributos.
+ */
 Libro.init(
     {
         id: {
@@ -40,7 +45,13 @@ Libro.init(
     }
 );
 
+/**
+ * Relaciones del modelo Libro:
+ * - Un libro pertenece a un autor.
+ * - Un libro pertenece a una categoría.
+ */
 Libro.belongsTo(Autor, { foreignKey: "id_autor" });
-Libro.belongsTo(Categoria, { foreignKey: "id_categoria"});
+Libro.belongsTo(Categoria, { foreignKey: "id_categoria" });
 
 export default Libro;
+

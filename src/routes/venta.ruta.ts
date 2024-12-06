@@ -8,6 +8,10 @@ import {
 
 const router = express.Router();
 
+/**
+ * Define las rutas relacionadas con las ventas.
+ */
+
 // Registrar una nueva venta
 router.post("/", registrarVenta);
 

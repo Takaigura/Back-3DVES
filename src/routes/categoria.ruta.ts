@@ -7,6 +7,10 @@ import {
 
 const router = express.Router();
 
+/**
+ * Rutas relacionadas con la gestión de categorías.
+ */
+
 // Crear una nueva categoría
 router.post("/", crearCategoria);
 
@@ -17,3 +21,4 @@ router.get("/", obtenerCategorias);
 router.delete("/:id", eliminarCategoria);
 
 export default router;
+
