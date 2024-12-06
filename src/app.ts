@@ -9,9 +9,8 @@ import ventaRoutes from "./routes/venta.ruta";
 // Crear una instancia de la aplicación express
 const app = express();
 
-// Middleware para habilitar CORS y parsear cuerpos de solicitud en formato JSON
-app.use(cors()); // Permite solicitudes de diferentes dominios
-app.use(bodyParser.json()); // Parseo de cuerpos JSON
+app.use(cors());
+app.use(bodyParser.json());
 
 // Rutas de la aplicación
 app.use("/autores", autorRoutes); // Rutas para gestionar autores

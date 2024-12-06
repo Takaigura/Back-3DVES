@@ -19,7 +19,7 @@ const startServer = async () => {
             console.log(`Servidor corriendo en http://localhost:${PORT}`);
         });
     } catch (error) {
-        // Si ocurre un error durante la sincronización o al arrancar el servidor
+        // Error si no se inicia el servidor
         console.error("Error al iniciar el servidor:", error);
     }
 };

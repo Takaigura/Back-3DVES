@@ -5,7 +5,7 @@ import { Sequelize } from "sequelize";
  * Utiliza SQLite como base de datos y especifica la ruta del archivo.
  */
 const sequelize = new Sequelize({
-    dialect: "sqlite",  // Tipo de base de datos (SQLite en este caso)
+    dialect: "sqlite",  // Tipo de base de datos 
     storage: "./database.sqlite",  // Ruta del archivo donde se almacenará la base de datos SQLite
 });
 

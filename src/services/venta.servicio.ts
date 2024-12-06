@@ -89,7 +89,6 @@ export const eliminarVenta = async (req: Request, res: Response) => {
             await ventaEncontrada.destroy();
             res.status(200).json({ message: "Venta eliminada con éxito." });
         }
-        
     } catch (error) {
         console.error("Error al eliminar la venta:", error);
         res.status(500).json({ error: "Error interno al eliminar la venta." });
