@@ -42,6 +42,5 @@ Libro.init(
 
 Libro.belongsTo(Autor, { foreignKey: "id_autor" });
 Libro.belongsTo(Categoria, { foreignKey: "id_categoria"});
-Libro.hasMany(Venta, { foreignKey: "id_libro" });
 
 export default Libro;

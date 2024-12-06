@@ -14,20 +14,15 @@ Venta.init(
         id_libro: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            references: {
-                model: Libro, // Referencia al modelo Libro
-                key: "id",
-            },
-        },
-        fecha: {
-            type: DataTypes.DATE,
-            allowNull: false,
-            defaultValue: DataTypes.NOW,
         },
         cantidad: {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
+        total: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        }
     },
     {
         sequelize,
@@ -35,5 +30,6 @@ Venta.init(
     }
 );
 
+Venta.belongsTo(Libro, { foreignKey: "id_libro" });
 
 export default Venta;

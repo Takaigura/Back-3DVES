@@ -30,21 +30,21 @@ export const obtenerVentas = async (_req: Request, res: Response) => {
     }
 };
 
-// Consultar el total de ventas por mes
-export const totalVentasPorMes = async (_req: Request, res: Response) => {
+export const totalVentasPorMes = async (req: Request, res: Response) => {
     try {
-        const ventasPorMes = await Venta.findAll({
+        const totales = await Venta.findAll({
             attributes: [
-                [Sequelize.fn("DATE_FORMAT", Sequelize.col("createdAt"), "%Y-%m"), "mes"],
-                [Sequelize.fn("SUM", Sequelize.col("total")), "totalVentas"],
+                [Sequelize.fn("strftime", "%Y-%m", Sequelize.col("createdAt")), "mes"],
+                [Sequelize.fn("SUM", Sequelize.col("total")), "totalVentas"]
             ],
-            group: [Sequelize.fn("DATE_FORMAT", Sequelize.col("createdAt"), "%Y-%m")],
+            group: ["mes"],
+            order: [["mes", "ASC"]],
         });
 
-        res.status(200).json(ventasPorMes);
+        res.json(totales);
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: "Error al calcular las ventas por mes" });
+        console.error("Error en totalVentasPorMes:", error);
+        res.status(500).json({ message: "Error interno del servidor" });
     }
 };
 
